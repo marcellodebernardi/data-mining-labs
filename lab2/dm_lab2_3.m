@@ -30,7 +30,7 @@ for lam = [0,logspace(-3,1,5)]
     % --- FIX ME: COMMENT OUT TWO OF THE LINES BELOW, SO EXACTLY ONE IS ENABLED ---  
     % SSE = sum((ytrainset - phitrain*w_map).^2);
     SSE = sum((yvalset - phival*w_map).^2);  
-    %SSE = sum((yTest - phitest*w_map).^2);
+    % SSE = sum((yTest - phitest*w_map).^2);
     % --- FIX ME: COMMENT OUT TWO OF THE LINES BELOW, SO EXACTLY ONE IS ENABLED ---
     
     fprintf(1,'Lambda: %1.5f, CV SSE: %1.5f.', lam, SSE);

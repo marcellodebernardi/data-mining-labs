@@ -2,14 +2,14 @@ disp('Data Mining - Lab 2Q2: Polynomial Regression with Regularization');
 clear all; close all;
 rng('default');
 %% Create and show some 3rd order polynomial data.
-[xTrain,yTrain,xTest,yTest,xVal,yVal,xTrue,yTrue] = utilCreatePolyData(10); %Parameter here specifies how many points to generate.
+[xTrain,yTrain,xTest,yTest,xVal,yVal,xTrue,yTrue] = utilCreatePolyData(100); %Parameter here specifies how many points to generate.
 figure(1); clf;
 plot(xTrue,yTrue,'k:',xTrain,yTrain,'b.',xTest,yTest,'r*'); title('True Dist (3rd order poly) and Samples');
 
 
 %% Perform Regression with Different order polynomials, to observe the overfitting problem 
 %Basis Function phi(x)=Poly
-LAMBDA = 0; %THIS IS THE REGULARIZATION STRENGTH.
+LAMBDA = 1; %THIS IS THE REGULARIZATION STRENGTH.
 figure(2); clf;
 subfigid = 0;
 testerr= zeros(3,1);

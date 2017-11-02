@@ -39,11 +39,10 @@ always the case that the majority of the K instances looked at are "good".
     The loop executed 1000 times (40 * 5 * 5).
 
 5.  After one run of Cell 4b, the new weights are
-  ```
-  [0.066543178776321,1.222607395813489,1.677419405413738]
-  ```
-
-  The training accuracy is now 0.76.
+    ```
+    [0.066543178776321,1.222607395813489,1.677419405413738]
+    ```
+    The training accuracy is now 0.76.
 
 6.  It was evaluated 8 times. This is much lower than the 1000 iterations
     used in exhaustive search. Gradient descent is a better optimization

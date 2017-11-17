@@ -38,7 +38,7 @@ accuracy.
     frequencies of classes.
 8.  Set the actual frequencies of the classes in the dataset as the priors.
     That is, 25/65, 6/65, and 25/65. This obtains an accuracy of 0.96 for class
-    A, 0 for class B, and 1 for class C.
+    A, 0 for class B, and 1 for class C. Overall accuracy is 0.88.
 
 
 ## 3 - SCALING WITH N OF DIMENSIONS

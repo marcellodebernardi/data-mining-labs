@@ -62,6 +62,7 @@ public static boolean isSubset(LispList<Integer> subset, LispList<Integer> super
   return true;
 }
 
+
 // EXERCISE 9
 public static boolean isSubset(LispList<Integer> subset, LispList<Integer> superset) {
   if subset.isEmpty() return true;
@@ -72,4 +73,49 @@ public static boolean isSubset(LispList<Integer> subset, LispList<Integer> super
 private static boolean isIn(int element, LispList<Integer> list) {
   if (list.isEmpty()) return false;
   else return list.head() == element || isIn(element, list.tail())
+}
+
+
+// linked list merge recursive
+public static <T exteds Integer> Cell<T> mergeRecursive(Cell<T> list1, Cell<T> list2) {
+  if (list1 == null)
+    return list2;
+  else if (list2 == null)
+    return list1;
+  else if (list1.first.compareTo(list2.first) <= 0)
+   return new Cell<>(list1.first, mergeRecursive(list1.next, list2));
+  else
+    return new Cell<>(list2.first, mergeRecursive(list1, list2.next));
+}
+
+
+// LINKED list
+public static Cell<Integer> mergeIterative(Cell<Integer> list1, Cell<Integer> list2) {
+  Cell<Integer> listHead = new Cell<>(null, null);
+  Cell<Integer> listTail = listHead;
+  Integer previous = null;
+
+  while (list1 != null && list2 != null) {
+      if (list1.first.equals(previous)) {
+        list1 = list1.next;
+      }
+      else if (list2.first.equals(previous)) {
+        list2 = list2.next;
+      }
+      else if (list1.first.compareTo(list2.first) <= 0) {
+        listTail.next = new Cell<>(list1.first, null);
+        previous = list1.first;
+        list1 = list1.next;
+        listTail = listTail.next;
+      }
+      else {
+        listTail.next = new Cell<>(list2.first, null);
+        previous = list2.first;
+        list2 = list2.next
+        listTail = listTail.next;
+      }
+  }
+
+  listTail.next = list1 != null ? list1 : list2;
+  return listHead.next;
 }

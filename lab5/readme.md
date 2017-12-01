@@ -29,6 +29,7 @@
     matches the results from Q2.6, where setting the variable `nPCA` to
     values between 54 and 58 first achieves 99% reconstruction accuracy.
 9.  Found 71% accuracy at 27. 71% is also achieved with other numbers of
-    PCA dimensions, but 27 is the lowest numbers at which this occurs. **This
-    is not as accurate as classification of raw images**, but is computationally
-    much less intensive.
+    PCA dimensions, but 27 is the lowest numbers at which this occurs. With
+    4096 dimensions (equivalent to raw data) the classification accuracy is
+    68%, **classification after dimensionality reduction has better
+    predictive accuracy than classification on the raw data**.

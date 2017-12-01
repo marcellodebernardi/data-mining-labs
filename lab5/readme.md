@@ -1,12 +1,8 @@
 # DATA MINING - LAB 5
 
 ## 1 - FEATURE SELECTION
-2.  The most informative ones seem to be `pension` and
-    `contribution-to-health-plan`. The least informative is
-    `statutory-holidays`.
-
 3.  Removal of attributes is done at each turn by checking which attributes
-    results in the best accuracy once removed.
+    results in the best accuracy once removed. The table is below:
 
     | Subset Size | Attributes Selected    | Accuracy | Attributes Removed |
     |-------------|------------------------|----------|--------------------|
@@ -16,24 +12,23 @@
     | 2           | W, P                   | 85.0%    | Hol                |
     | 1           | P                      | 80.7%    | W                  |
 
-    This result in trying 5 + 4 + 3 + 2 = 14 combinations. In total there are
-    C(5,5) + C(5,4) + C(5,3) + C(5,2) + C(5,1) combinations. An example of an
-    untried combination is `[P, Hol, Vac]`.
+    **The best accuracy is obtained with a subset of size 3, with attributes
+    W, P, Hol.**
 
-4.  The ranking is `wage-increase-first-year`, `statutory-holidays`,
-    `contribution-to-health-plan`, `vacation`, `pension`. For chi squared,
-    the ranking is `pension`, `wage-increase-first-year`, `statutory-holidays`,
-    `contribution-to-health-plan`, `vacation`.
+4.  Weka's **GreedyStepwise** with backwards selection replicates the procedure
+    above. The selected attributes are `wage-increase-first-year`, `pension`, and
+    `statutory-holidays`. **This matches Q3**. With forward selection, the
+    selected attributes are `pension` and `contribution-to-health-plan`.
 
-    The selected attributes are `wage-increase-first-year`, `pension`, and
-    `statutory-holidays`. This matches Q3. With forward selection, the selected
-    attributes are `pension` and `contribution-to-health-plan`.
-
-5.  todo
+5.  The picket attributes are `petallength` and `petalwidth`. All the rest
+    are discarded, i.e. `sepallength`, `sepalwidth`, and all their copies.
 
 
 ## 2 - DIMENSIONALITY REDUCTION
-5.  Glasses appeared first at PCA 8 or 9. The reconstruction error first drops
-    to 0.009 at 58 PCs. **The required number of PCs according to the
-    eigenvalue plot is 56, this matches the previous question**.
-6.  Found 71% accuracy at 27.
+8.  The required number of PCs according to the eigenvalue plot is 56. This
+    matches the results from Q2.6, where setting the variable `nPCA` to
+    values between 54 and 58 first achieves 99% reconstruction accuracy.
+9.  Found 71% accuracy at 27. 71% is also achieved with other numbers of
+    PCA dimensions, but 27 is the lowest numbers at which this occurs. **This
+    is not as accurate as classification of raw images**, but is computationally
+    much less intensive.

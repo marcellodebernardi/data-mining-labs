@@ -119,3 +119,18 @@ public static Cell<Integer> mergeIterative(Cell<Integer> list1, Cell<Integer> li
   listTail.next = list1 != null ? list1 : list2;
   return listHead.next;
 }
+
+
+private int hashCode(String word) {
+  // do once, gives you number of bits for indices
+  int indexLength = Math.ceil(Math.log((hashTable.length - 1), 2));
+
+  int hash = 0;
+
+  for (int i = 0, mask = 1; i < indexLength; i++, mask * 2) {
+    if (i >= word.length()) i = 0;
+    hash = word.charAt(i) % 2 == 1 ? hash ^ mask : hash;
+  }
+
+  return hash;
+}
